@@ -6,7 +6,7 @@ const TAPANYAGOK = {
         termekek: [
             {
                 id: 1,
-                nev: "articsóka",
+                nev: 'articsóka',
                 energia: 50.0,
                 feherje: 2.4,
                 zsir: 0.1,
@@ -1508,7 +1508,7 @@ const TAPANYAGOK = {
             },
             {
                 id: 164,
-                nev: "korpás zsemle. kifli",
+                nev: "korpás zsemle, kifli",
                 energia: 252.0,
                 feherje: 10.5,
                 zsir: 1.5,
@@ -1535,7 +1535,7 @@ const TAPANYAGOK = {
             },
             {
                 id: 168,
-                nev: "zsemle. kifli",
+                nev: "zsemle, kifli",
                 energia: 273.0,
                 feherje: 9.4,
                 zsir: 0.7,
