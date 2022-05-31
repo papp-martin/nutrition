@@ -1,4 +1,5 @@
 import React from 'react';
+import CustomButton from '../custom-button/custom-button.component';
 import './product-item.styles.scss';
 
 const ProductItem = ({ termek }) => {
@@ -17,6 +18,7 @@ const ProductItem = ({ termek }) => {
             <div className='product-footer'>
                 <span className='name'>{nev}</span>
             </div>
+            <CustomButton inverted>Hozzáad</CustomButton>
         </div>
     );
 };

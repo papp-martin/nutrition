@@ -1,18 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ScaleIconComp from '../scale-icon/scale-icon.component';
+import { auth } from '../../firebase/firebase.utils';
 import { ReactComponent as Logo } from '../../assets/bread.svg';
 import './header.styles.scss';
 
-const Header = () => (
+const Header = ({currentUser}) => (
     <div className='header'>
         <Link className='logo-container' to='/'>
             <Logo className='logo'/>
         </Link>
         <div className='options'>
-            <Link className='option'>
-                BEJELENTKEZÉS
-            </Link>
+            {
+                currentUser ?
+                (<div className='option' onClick={() => auth.signOut()}>KIJELENTKEZÉS</div>)
+                :
+                (<Link className='option' to='/signIn'>BEJELENTKEZÉS</Link>)
+            }
             <ScaleIconComp />
         </div>
     </div>
