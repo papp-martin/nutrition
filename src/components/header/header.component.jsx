@@ -13,6 +13,12 @@ const Header = ({currentUser}) => (
         <div className='options'>
             {
                 currentUser ?
+                (<div className='signed-as'>BEJELENTKEZVE: {currentUser.displayName}</div>)
+                :
+                (<div className='signed-as'> </div>)
+            }
+            {
+                currentUser ?
                 (<div className='option' onClick={() => auth.signOut()}>KIJELENTKEZÉS</div>)
                 :
                 (<Link className='option' to='/signIn'>BEJELENTKEZÉS</Link>)
@@ -21,5 +27,4 @@ const Header = ({currentUser}) => (
         </div>
     </div>
 );
-
 export default Header;

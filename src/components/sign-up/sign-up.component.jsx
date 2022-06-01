@@ -22,7 +22,7 @@ class SignUp extends React.Component {
 
         const {displayName, email, password, confirmPassword} = this.state;
 
-        if(password != confirmPassword) {
+        if(password !== confirmPassword) {
             alert("Jelszavak nem egyeznek")
             return;
         }
@@ -59,7 +59,7 @@ class SignUp extends React.Component {
                     <FormInput type='text' name='displayName' value={displayName} onChange={this.handleChange} label='Név' required />
                     <FormInput type='email' name='email' value={email} onChange={this.handleChange} label='Email' required />
                     <FormInput type='password' name='password' value={password} onChange={this.handleChange} label='Jelszó' required />
-                    <FormInput type='password' name='confirmPassword' value={confirmPassword} onChange={this.handleChange} label='Jelszó mégegyszer' required />
+                    <FormInput type='password' name='confirmPassword' value={confirmPassword} onChange={this.handleChange} label='Jelszó újra' required />
                     <CustomButton type='submit'>REGISZTRÁCIÓ</CustomButton>
                 </form>
             </div>
