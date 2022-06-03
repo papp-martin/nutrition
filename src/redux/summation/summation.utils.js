@@ -25,7 +25,7 @@ export const removeProductFromSumm = (summationProducts, summationProductToRemov
 
     return summationProducts.map(summationProduct => 
         summationProduct.id === summationProductToRemove.id
-        ? { ... summationProduct, quantity: summationProduct.quantity - 10 }
+        ? { ...summationProduct, quantity: summationProduct.quantity - 10 }
         : summationProduct
     );
 };
