@@ -16,3 +16,30 @@ export const selectSummationEnergyTotal = createSelector(
         0
     )
 );
+
+export const selectSummationProteinTotal = createSelector(
+    [selectSummationProducts],
+    summationProducts => summationProducts.reduce(
+        (accumulatedQuantity, summationProduct) =>
+            accumulatedQuantity + summationProduct.quantity * summationProduct.feherje,
+        0
+    )
+);
+
+export const selectSummationFatTotal = createSelector(
+    [selectSummationProducts],
+    summationProducts => summationProducts.reduce(
+        (accumulatedQuantity, summationProduct) =>
+            accumulatedQuantity + summationProduct.quantity * summationProduct.zsir,
+        0
+    )
+);
+
+export const selectSummationCarboTotal = createSelector(
+    [selectSummationProducts],
+    summationProducts => summationProducts.reduce(
+        (accumulatedQuantity, summationProduct) =>
+            accumulatedQuantity + summationProduct.quantity * summationProduct.szenhidrat,
+        0
+    )
+);

@@ -23,9 +23,13 @@
         }
     }
 
-    .total {
+    .totals {
         margin-top: 30px;
-        margin-left: auto;
         font-size: 25px;
+    }
+
+    .total {
+        font-size: 25px;
+        margin: 5px 0;
     }
 }

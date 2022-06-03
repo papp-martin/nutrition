@@ -19,15 +19,28 @@
 
     .name,
     .quantity,
-    .data {
+    .datas {
         width: 23%;
+    }
+
+    .data {
+        margin: 5px 7px;
     }
 
     .quantity {
         display: flex;
+
+        .arrow {
+            cursor: pointer;
+        }
+
+        .value {
+            margin: 0 25px;
+        }
     }
 
-    .value {
-        margin: 0 10px;
+    .clear-button {
+        padding-left: 12px;
+        cursor: pointer;
     }
 }
