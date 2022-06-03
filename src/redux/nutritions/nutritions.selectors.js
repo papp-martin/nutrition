@@ -7,10 +7,10 @@ export const selectProducts = createSelector(
     nutritions => nutritions.products
 );
 
-// export const selectProductsFor = createSelector(
-//     [selectProducts],
-//     products => products ? Object.keys(products).map(key => products[key]) : []
-// );
+export const selectProductsFor = createSelector(
+    [selectProducts],
+    products => products ? Object.keys(products).map(key => products[key]) : []
+);
 
 export const selectProduct = productUrlParam => createSelector(
     [selectProducts],

@@ -5,6 +5,7 @@ import HomePage from './pages/homepage/homepage.component';
 import SignInSignUpPage from './pages/signIn-signUp-page/signIn-signUp.component';
 import NutritionsPage from './pages/nutritions-page/nutritions-page-component';
 import Header from './components/header/header.component';
+import SummaryPage from './pages/summary/summary.component';
 import { createStructuredSelector } from 'reselect';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
@@ -48,6 +49,7 @@ class App extends React.Component {
           <Route exact path='/' component={HomePage} />
           <Route path='/termekek' component={NutritionsPage} />
           <Route exact path='/signIn' render={() => this.props.currentUser ? (<Redirect to='/'/>) : (<SignInSignUpPage />)} />
+          <Route exact path='/summary' component={SummaryPage} />
         </Switch>
       </div>
     );

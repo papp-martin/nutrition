@@ -1,8 +1,10 @@
 import React from 'react';
 import CustomButton from '../custom-button/custom-button.component';
 import './product-item.styles.scss';
+import { connect } from 'react-redux';
+import { addProduct } from '../../redux/summation/summation.actions';
 
-const ProductItem = ({ termek }) => {
+const ProductItem = ({ termek, addProduct }) => {
     const { nev, energia, feherje, zsir, szenhidrat, imageUrl } = termek;
     return (
         <div className='product-item'>
@@ -18,9 +20,13 @@ const ProductItem = ({ termek }) => {
             <div className='product-footer'>
                 <span className='name'>{nev}</span>
             </div>
-            <CustomButton inverted>Hozzáad</CustomButton>
+            <CustomButton onClick={() => addProduct(termek)} inverted>Hozzáad</CustomButton>
         </div>
     );
 };
 
-export default ProductItem;
+const mapDispatchToProps = dispatch => ({
+    addProduct: termek => dispatch(addProduct(termek))
+});
+
+export default connect(null, mapDispatchToProps)(ProductItem);
