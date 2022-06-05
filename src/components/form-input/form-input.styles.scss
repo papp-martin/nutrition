@@ -1,4 +1,10 @@
 .group {
     position: relative;
     margin: 45px 0;
+
+    .form-input {
+        margin: 5px;
+        border: none;
+        border-bottom: 1px solid black;
+    }
 }
