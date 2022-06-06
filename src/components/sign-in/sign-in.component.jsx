@@ -25,6 +25,7 @@ class SignIn extends React.Component {
             this.setState({ email: '', password: ''});
         } catch (error) {
             console.error(error);
+            alert('Hibás email vagy jelszó!');
         }
 
         this.setState({ email: '', password: '' })
