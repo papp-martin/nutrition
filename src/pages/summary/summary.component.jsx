@@ -21,29 +21,29 @@ const SummaryPage = ({ summationProducts, totalEnergy, totalProtein, totalFat, t
     <div className='summary-page'>
         <div className='summary-header'>
             <div className='header-block'>
-                <span>Termék</span>
+                <span>Product</span>
             </div>
             <div className='header-block'>
-                <span>Név</span>
+                <span>Name</span>
             </div>
             <div className='header-block'>
-                <span>Mennyiség</span>
+                <span>Quantity</span>
             </div>
             <div className='header-block'>
-                <span>Tápértékek (100g)</span>
+                <span>Nutritions (100g)</span>
             </div>
             <div className='header-block'>
-                <span>Eltávolít</span>
+                <span>Remove</span>
             </div>
         </div>
         {summationProducts.map(summationProduct => (
             <SummaryProduct key={summationProduct.id} summationProduct={summationProduct} />
         ))}
-        <span className='totals'>BEVITT TÁPÉRTÉK ÖSSZESEN:</span>
-        <p className='total'>Energia: {Math.round((realtotalEnergy + Number.EPSILON) * 100) / 100} kcal</p>
-        <p className='total'>Fehérje: {Math.round((realtotalProtein + Number.EPSILON) * 100) / 100} g</p>
-        <p className='total'>Zsír: {Math.round((realtotalFat + Number.EPSILON) * 100) / 100} g</p>
-        <p className='total'>Szénhidrát: {Math.round((realtotalCarbo + Number.EPSILON) * 100) / 100} g</p>
+        <span className='totals'>TOTAL NUTRITIONAL VALUE:</span>
+        <p className='total'>Energy: {Math.round((realtotalEnergy + Number.EPSILON) * 100) / 100} kcal</p>
+        <p className='total'>Protein: {Math.round((realtotalProtein + Number.EPSILON) * 100) / 100} g</p>
+        <p className='total'>Fat: {Math.round((realtotalFat + Number.EPSILON) * 100) / 100} g</p>
+        <p className='total'>Carbohydrate: {Math.round((realtotalCarbo + Number.EPSILON) * 100) / 100} g</p>
     </div>
     )
 };

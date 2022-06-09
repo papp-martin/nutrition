@@ -23,7 +23,7 @@ class SignUp extends React.Component {
         const {displayName, email, password, confirmPassword} = this.state;
 
         if(password !== confirmPassword) {
-            alert("Jelszavak nem egyeznek")
+            alert("Password do not match")
             return;
         }
 
@@ -53,14 +53,14 @@ class SignUp extends React.Component {
         const {displayName, email, password, confirmPassword} = this.state;
         return (
             <div className='sign-up'>
-                <h2 className='title'>Még nincs fiókom</h2>
-                <span>Regisztráció email-el és jelszóval</span>
+                <h2 className='title'>I do not have an account</h2>
+                <span>Sign Up with your email and password</span>
                 <form className='sign-up-form' onSubmit={this.handleSubmit}>
-                    <FormInput type='text' name='displayName' value={displayName} onChange={this.handleChange} label='Név' required />
+                    <FormInput type='text' name='displayName' value={displayName} onChange={this.handleChange} label='Name' required />
                     <FormInput type='email' name='email' value={email} onChange={this.handleChange} label='Email' required />
-                    <FormInput type='password' name='password' value={password} onChange={this.handleChange} label='Jelszó' required />
-                    <FormInput type='password' name='confirmPassword' value={confirmPassword} onChange={this.handleChange} label='Jelszó újra' required />
-                    <CustomButton type='submit'>REGISZTRÁCIÓ</CustomButton>
+                    <FormInput type='password' name='password' value={password} onChange={this.handleChange} label='Password' required />
+                    <FormInput type='password' name='confirmPassword' value={confirmPassword} onChange={this.handleChange} label='Confirm password' required />
+                    <CustomButton type='submit'>SIGN UP</CustomButton>
                 </form>
             </div>
         );

@@ -25,7 +25,7 @@ class SignIn extends React.Component {
             this.setState({ email: '', password: ''});
         } catch (error) {
             console.error(error);
-            alert('Hibás email vagy jelszó!');
+            alert('Incorrect email or password');
         }
 
         this.setState({ email: '', password: '' })
@@ -40,8 +40,8 @@ class SignIn extends React.Component {
         const { email, password } = this.state;
         return (
             <div className="sign-in">
-                <h2>Már van fiókom</h2>
-                <span>Belépés email-el és jelszóval</span>
+                <h2>I already have account</h2>
+                <span>Sign in with email and password</span>
 
                 <form onSubmit={this.handleSubmit}>
                     <FormInput 
@@ -57,12 +57,12 @@ class SignIn extends React.Component {
                         type='password'
                         value={password}
                         handleChange={this.handleChange}
-                        label='Jelszó'
+                        label='Password'
                         required
                     />
                     <div className="buttons">
-                        <CustomButton type='submit'> Belépés </CustomButton>
-                        <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Belépés Google fiókkal</CustomButton>
+                        <CustomButton type='submit'> Sign In </CustomButton>
+                        <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Sign In with Google</CustomButton>
                     </div>
                 </form>
             </div>

@@ -17,9 +17,9 @@ const Header = ({currentUser}) => (
         <div className='options'>
             {
                 currentUser ?
-                (<div className='option' onClick={() => auth.signOut()}>KIJELENTKEZÉS</div>)
+                (<div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>)
                 :
-                (<Link className='option' to='/signIn'>BEJELENTKEZÉS</Link>)
+                (<Link className='option' to='/signIn'>SIGN IN</Link>)
             }
             <Link className='option' to='/summary'>
                 <ScaleIconComp />
