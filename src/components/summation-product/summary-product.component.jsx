@@ -4,13 +4,13 @@ import { clearProductFromSumm, addProduct, removeProduct } from '../../redux/sum
 import './summary-product.styles.scss';
 
 const SummaryProduct = ({ summationProduct, clearProduct, addProduct, removeProduct }) => {
-    const { nev, imageUrl, energia, feherje, zsir, szenhidrat, quantity } = summationProduct;
+    const { name, imageUrl, energy, protein, fat, carbohydrate, quantity } = summationProduct;
     return(
     <div className='summation-product'>
         <div className='image-container'>
-            <img src={imageUrl} alt="termék" />
+            <img src={imageUrl} alt="product" />
         </div>
-        <span className='name'>{nev}</span>
+        <span className='name'>{name}</span>
         <span className='quantity'>
             <div className='arrow' onClick={() => removeProduct(summationProduct)}>
                 &#10094;
@@ -21,10 +21,10 @@ const SummaryProduct = ({ summationProduct, clearProduct, addProduct, removeProd
             </div>
         </span>
         <div className='datas'>
-            <p className='data'>Energia: {energia} kcal</p>
-            <p className='data'>Fehérje: {feherje} g</p>
-            <p className='data'>Zsír: {zsir} g</p>
-            <p className='data'>Szénhidrát: {szenhidrat} g</p>
+            <p className='data'>Energy: {energy} kcal</p>
+            <p className='data'>Protein: {protein} g</p>
+            <p className='data'>Fat: {fat} g</p>
+            <p className='data'>Carbohydrate: {carbohydrate} g</p>
         </div>
         <div className='clear-button' onClick={() => clearProduct(summationProduct)}>&#10005;</div>
     </div>

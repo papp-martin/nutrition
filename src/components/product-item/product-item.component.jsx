@@ -4,29 +4,29 @@ import './product-item.styles.scss';
 import { connect } from 'react-redux';
 import { addProduct } from '../../redux/summation/summation.actions';
 
-const ProductItem = ({ termek, addProduct }) => {
-    const { nev, energia, feherje, zsir, szenhidrat, imageUrl } = termek;
+const ProductItem = ({ oneProduct, addProduct }) => {
+    const { name, energy, protein, fat, carbohydrate, imageUrl } = oneProduct;
     return (
         <div className='product-item'>
             <div className='image' style={{backgroundImage: `url(${imageUrl})`}} />
             <div className='item-details'>
                 <div className='container'>
-                    <p className='detail'>Energia: {energia} kcal</p>
-                    <p className='detail'>Fehérje: {feherje} g</p>
-                    <p className='detail'>Zsír: {zsir} g</p>
-                    <p className='detail'>Szénhidrát: {szenhidrat} g</p>
+                    <p className='detail'>Energy: {energy} kcal</p>
+                    <p className='detail'>Protein: {protein} g</p>
+                    <p className='detail'>Fat: {fat} g</p>
+                    <p className='detail'>Carbohydrate: {carbohydrate} g</p>
                 </div>
             </div>
             <div className='product-footer'>
-                <span className='name'>{nev}</span>
+                <span className='name'>{name}</span>
             </div>
-            <CustomButton onClick={() => addProduct(termek)} inverted>Hozzáad</CustomButton>
+            <CustomButton onClick={() => addProduct(oneProduct)} inverted>Add</CustomButton>
         </div>
     );
 };
 
 const mapDispatchToProps = dispatch => ({
-    addProduct: termek => dispatch(addProduct(termek))
+    addProduct: oneProduct => dispatch(addProduct(oneProduct))
 });
 
 export default connect(null, mapDispatchToProps)(ProductItem);

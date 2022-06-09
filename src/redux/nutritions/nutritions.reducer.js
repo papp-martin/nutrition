@@ -1,7 +1,7 @@
-import TAPANYAGOK from "./nutritions.data"
+import FOODS from "./nutritions.data"
 
 const INITIAL_STATE = {
-    products: TAPANYAGOK
+    products: FOODS
 };
 
 const nutritionsReducer = (state = INITIAL_STATE, action) => {

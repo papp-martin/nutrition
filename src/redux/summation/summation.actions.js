@@ -1,16 +1,16 @@
 import CartActionTypes from "./summation.types";
 
-export const addProduct = termek => ({
+export const addProduct = oneProduct => ({
     type: CartActionTypes.ADD_PRODUCT,
-    payload: termek
+    payload: oneProduct
 });
 
-export const clearProductFromSumm = termek => ({
+export const clearProductFromSumm = oneProduct => ({
     type: CartActionTypes.CLEAR_PRODUCT_FROM_SUMM,
-    payload: termek
+    payload: oneProduct
 });
 
-export const removeProduct = termek => ({
+export const removeProduct = oneProduct => ({
     type: CartActionTypes.REMOVE_PRODUCT,
-    payload: termek
+    payload: oneProduct
 });

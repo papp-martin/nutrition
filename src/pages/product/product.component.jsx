@@ -5,13 +5,13 @@ import ProductItem from '../../components/product-item/product-item.component';
 import { selectProduct } from '../../redux/nutritions/nutritions.selectors';
 
 const ProductPage = ({ product }) => {
-    const { cim, termekek } = product;
+    const { title, allProducts } = product;
     return (
         <div className='product-page'>
-            <h2 className='title'>{cim.toUpperCase()}</h2>
-            <div className='termekek'>
-                {termekek.map(termek => (
-                    <ProductItem key={termek.id} termek={termek} />
+            <h2 className='title'>{title.toUpperCase()}</h2>
+            <div className='allProducts'>
+                {allProducts.map(oneProduct => (
+                    <ProductItem key={oneProduct.id} oneProduct={oneProduct} />
                 ))}
             </div>
         </div>

@@ -30,7 +30,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
                 ...additionalData
             })
         } catch (error) {
-            console.log('hiba felhasználó létrehozás', error.message);
+            console.log('user create error', error.message);
         }
     }
 
