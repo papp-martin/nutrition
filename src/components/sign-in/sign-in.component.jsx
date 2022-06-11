@@ -12,7 +12,7 @@ class SignIn extends React.Component {
         this.state = {
             email: '',
             password: ''
-        }
+        };
     }
 
     handleSubmit = async event => {
@@ -28,14 +28,15 @@ class SignIn extends React.Component {
             alert('Incorrect email or password');
         }
 
-        this.setState({ email: '', password: '' })
+        // this.setState({ email: '', password: '' })
     };
 
     handleChange = event => {
         const { value, name } = event.target;
 
-        this.setState({ [name]: value })
-    }
+        this.setState({ [name]: value });
+    };
+
     render() {
         const { email, password } = this.state;
         return (
@@ -47,16 +48,16 @@ class SignIn extends React.Component {
                     <FormInput 
                         name='email'
                         type='email'
-                        value={email}
                         handleChange={this.handleChange}
+                        value={email}
                         label='Email'
                         required
                     />
                     <FormInput 
                         name='password'
                         type='password'
-                        value={password}
                         handleChange={this.handleChange}
+                        value={password}
                         label='Password'
                         required
                     />

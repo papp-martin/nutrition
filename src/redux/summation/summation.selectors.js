@@ -7,7 +7,6 @@ export const selectSummationProducts = createSelector(
     summation => summation.summationProducts
 );
 
-
 export const selectSummationEnergyTotal = createSelector(
     [selectSummationProducts],
     summationProducts => summationProducts.reduce(

@@ -26,7 +26,7 @@ const ProductItem = ({ oneProduct, addProduct }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    addProduct: oneProduct => dispatch(addProduct(oneProduct))
+    addProduct: oneProduct => dispatch(addProduct(oneProduct), alert("Product added to summary!"))
 });
 
 export default connect(null, mapDispatchToProps)(ProductItem);

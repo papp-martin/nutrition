@@ -441,7 +441,7 @@ const FOODS = {
                 protein: 0.5,
                 fat: 0.2,
                 carbohydrate: 6.5,
-                imageUrl: "https://www.agrarszektor.hu/images/titlelap/G/gorogdinnye768-20170608.jpg"
+                imageUrl: "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_auto,w_698,h_1048/k%2Farchive%2F192f239683579967c14ed71157ea323e9edd14bf"
             },
             {
                 id: 49,
@@ -579,15 +579,6 @@ const FOODS = {
                 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/e/ea/Cultivated_Blackberry%2C_Rubus_fruticosus_-_geograph.org.uk_-_1426305.jpg"
             },
             {
-                id: 64,
-                name:"plum",
-                energy:47.0,
-                protein:0.8,
-                fat:0.0,
-                carbohydrate:10.2,
-                imageUrl: "http://gyogyitoangyalenergy.hu/wp-content/uploads/2019/11/szilva.jpg"
-            },
-            {
                 id: 65,
                 name:"grape",
                 energy:81.0,
@@ -646,7 +637,7 @@ const FOODS = {
                 protein: 16.5,
                 fat: 26.4,
                 carbohydrate: 1.7,
-                imageUrl: "https://campingsajt.hu/wp-content/uploads/2018/07/allProducts_All-1.png"
+                imageUrl: "https://static.groby.hu/media/84f/74c/conv/17667_se2_54972_back-full.png"
             },
             {
                 id: 70,
