@@ -23,13 +23,22 @@
         }
     }
 
-    .totals {
-        margin-top: 30px;
-        font-size: 25px;
+    .custom-button {
+        margin-top: 10px;
     }
 
-    .total {
-        font-size: 25px;
-        margin: 5px 0;
+    .total-count{
+        text-align: center;
+        margin-top: 30px;
+    
+        .totals {
+            margin-top: 30px;
+            font-size: 25px;
+        }
+    
+        .total {
+            font-size: 25px;
+            margin: 5px 0;
+        }
     }
 }

@@ -30,8 +30,9 @@
     .quantity {
         display: flex;
 
-        .arrow {
-            cursor: pointer;
+        .gramm-input {
+            width: 80px;
+            margin-right: 5px;
         }
 
         .value {

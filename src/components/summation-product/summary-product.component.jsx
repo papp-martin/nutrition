@@ -1,40 +1,59 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { clearProductFromSumm, addProduct, removeProduct } from '../../redux/summation/summation.actions';
+import { clearProductFromSumm, quantityChange } from '../../redux/summation/summation.actions';
 import './summary-product.styles.scss';
 
-const SummaryProduct = ({ summationProduct, clearProduct, addProduct, removeProduct }) => {
-    const { name, imageUrl, energy, protein, fat, carbohydrate, quantity } = summationProduct;
+
+class SummaryProduct extends React.Component {
+    constructor() {
+        super();
+
+        this.state = {
+            quantity: 0
+        };
+
+    };
+
+    handleChange = event => {
+        this.setState({
+            quantity: parseInt(event.target.value)
+        });
+    };
+
+
+    render() {
+    const { summationProduct, clearProduct, quantityChanging } = this.props;
+    //var { name, imageUrl, energy, protein, fat, carbohydrate, quantity } = summationProduct;
+
+    summationProduct.quantity = this.state.quantity;
+    // this.state.quantity = quantity;
+
     return(
-    <div className='summation-product'>
-        <div className='image-container'>
-            <img src={imageUrl} alt="product" />
-        </div>
-        <span className='name'>{name}</span>
-        <span className='quantity'>
-            <div className='arrow' onClick={() => removeProduct(summationProduct)}>
-                &#10094;
+        <div>
+            <div className='summation-product'>
+                <div className='image-container'>
+                    <img src={summationProduct.imageUrl} alt="product" />
+                </div>
+                <span className='name'>{summationProduct.name}</span>
+                <span className='quantity'>
+                    <input className='gramm-input' type="number" onChange={this.handleChange} onInput={() => quantityChanging()} max="1000" /> g
+                </span>
+                <div className='datas'>
+                    <p className='data'>Energy: {summationProduct.energy} kcal</p>
+                    <p className='data'>Protein: {summationProduct.protein} g</p>
+                    <p className='data'>Fat: {summationProduct.fat} g</p>
+                    <p className='data'>Carbohydrate: {summationProduct.carbohydrate} g</p>
+                </div>
+                <div className='clear-button' onClick={() => clearProduct(summationProduct)}>&#10005;</div>
             </div>
-            <span className='value'>{quantity} g</span>
-            <div className='arrow' onClick={() => addProduct(summationProduct)}>
-                &#10095;
-            </div>
-        </span>
-        <div className='datas'>
-            <p className='data'>Energy: {energy} kcal</p>
-            <p className='data'>Protein: {protein} g</p>
-            <p className='data'>Fat: {fat} g</p>
-            <p className='data'>Carbohydrate: {carbohydrate} g</p>
         </div>
-        <div className='clear-button' onClick={() => clearProduct(summationProduct)}>&#10005;</div>
-    </div>
     );
+    };
 };
 
 const mapDispatchToProps = dispatch => ({
-    clearProduct: termek => dispatch(clearProductFromSumm(termek)),
-    addProduct: termek => dispatch(addProduct(termek)),
-    removeProduct: termek => dispatch(removeProduct(termek))
+    clearProduct: oneProduct => dispatch(clearProductFromSumm(oneProduct)),
+    quantityChanging: () => dispatch(quantityChange())
 });
 
 export default connect(null, mapDispatchToProps)(SummaryProduct);
