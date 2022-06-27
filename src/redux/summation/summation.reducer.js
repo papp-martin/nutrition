@@ -12,6 +12,11 @@ const summationReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 summationProducts: addProductToSumm(state.summationProducts, action.payload)
             };
+        case CartActionTypes.QUANTITY_CHANGED:
+            return {
+                ...state,
+                summationProducts: state.summationProducts
+            };
         case CartActionTypes.CLEAR_PRODUCT_FROM_SUMM:
             return {
                 ...state,

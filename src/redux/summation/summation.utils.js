@@ -3,15 +3,15 @@ export const addProductToSumm = (summationProducts, productToSumm) => {
         summationProduct => summationProduct.id === productToSumm.id
     );
 
-    if (existingSummationProduct) {
-        return summationProducts.map(summationProduct => 
-            summationProduct.id === productToSumm.id
-            ? { ...summationProduct, quantity: summationProduct.quantity + 10 }
-            : summationProduct
-        );
-    }
+    // if (existingSummationProduct) {
+    //     return summationProducts.map(summationProduct => 
+    //         summationProduct.id === productToSumm.id
+    //         ? { ...summationProduct, quantity: summationProduct.quantity + 10 }
+    //         : summationProduct
+    //     );
+    // }
 
-    return [...summationProducts, { ...productToSumm, quantity: 10 }];
+    return [...summationProducts, { ...productToSumm, quantity: 0 }];
 };
 
 export const removeProductFromSumm = (summationProducts, summationProductToRemove) => {
