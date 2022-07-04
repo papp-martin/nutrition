@@ -14,5 +14,5 @@ export const selectProductsFor = createSelector(
 
 export const selectProduct = productUrlParam => createSelector(
     [selectProducts],
-    products => products[productUrlParam]
+    products => (products ? products[productUrlParam] : null)
 );

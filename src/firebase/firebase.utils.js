@@ -1,6 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
+import 'firebase/compat/storage';
 
 const config = {
     apiKey: "AIzaSyD2RbtuxrQ3rSElqtorQe-stOWiKypqy24",
@@ -37,10 +38,40 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
     return userRef;
 };
 
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+    const collectionRef = firestore.collection(collectionKey);
+    const batch = firestore.batch();
+    objectsToAdd.forEach(obj => {
+        const newDocRef = collectionRef.doc();
+        batch.set(newDocRef, obj);
+    });
+
+    return await batch.commit();
+};
+
+export const convertProductsSnapshotToMap = productsSnapshot => {
+    const transformedProduct = productsSnapshot.docs.map(doc => {
+        const { title, allProducts } = doc.data();
+
+        return {
+            routeName: encodeURI(title.toLowerCase()),
+            id: doc.id,
+            title,
+            allProducts
+        }
+    });
+
+    return transformedProduct.reduce((accumulator, products) => {
+        accumulator[products.title.toLowerCase()] = products;
+        return accumulator;
+    } , {});
+}
+
 firebase.initializeApp(config);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
+export const storage = firebase.storage();
 
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: 'select_account' });
