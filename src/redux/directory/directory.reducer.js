@@ -16,7 +16,7 @@ const INITIAL_STATE = {
             title: 'Dairy Products',
             imageUrl: 'https://tesco.hu/img/content_platform_hu/sized/757x426-72-ffffff/dairy_products_and_milk.jpg',
             id: 3,
-            linkUrl: 'allProducts/dairys'
+            linkUrl: 'allProducts/dairy'
         },
         {
             title: 'Meats',
