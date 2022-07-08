@@ -23,10 +23,8 @@ class SummaryProduct extends React.Component {
 
     render() {
     const { summationProduct, clearProduct, quantityChanging } = this.props;
-    //var { name, imageUrl, energy, protein, fat, carbohydrate, quantity } = summationProduct;
 
     summationProduct.quantity = this.state.quantity;
-    // this.state.quantity = quantity;
 
     return(
         <div>
