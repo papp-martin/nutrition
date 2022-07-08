@@ -28,7 +28,6 @@ class SignIn extends React.Component {
             alert('Incorrect email or password');
         }
 
-        // this.setState({ email: '', password: '' })
     };
 
     handleChange = event => {
@@ -63,7 +62,7 @@ class SignIn extends React.Component {
                     />
                     <div className="buttons">
                         <CustomButton type='submit'> Sign In </CustomButton>
-                        <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Sign In with Google</CustomButton>
+                        <CustomButton onClick={signInWithGoogle} isGoogleSignIn>Google Sign In</CustomButton>
                     </div>
                 </form>
             </div>

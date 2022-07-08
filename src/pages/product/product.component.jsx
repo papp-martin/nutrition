@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import './product.styles.scss';
 import ProductItem from '../../components/product-item/product-item.component';
@@ -8,6 +8,7 @@ import CustomButton from '../../components/custom-button/custom-button.component
 import { useState } from 'react';
 import { storage, firestore } from '../../firebase/firebase.utils';
 import firebase from 'firebase/compat/app';
+
 
 const ProductPage = ({ product, currentUser }) => {
     const { title, allProducts } = product;
@@ -28,7 +29,6 @@ const ProductPage = ({ product, currentUser }) => {
     
     const handleUpload = () => {
         const uploadTask = storage.ref(`products/${image.name}`).put(image);
-        console.log(image.name);
         uploadTask.on("state_changed",
             (snapshot) => {
                 //progress function
@@ -59,8 +59,7 @@ const ProductPage = ({ product, currentUser }) => {
                                     imageUrl: url,
                                     id: Math.floor(Math.random() * 1000) + 169
                                 }
-                            ),
-                            title: title
+                            )
                         });
 
                         setName('');
@@ -114,7 +113,7 @@ const ProductPage = ({ product, currentUser }) => {
 
 const mapStateToProps = (state, ownProps) => ({
     product: selectProduct(ownProps.match.params.productId)(state),
-    currentUser: selectCurrentUser(state)
+    currentUser: selectCurrentUser(state),
 });
 
 
