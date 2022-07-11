@@ -25,7 +25,6 @@ class SummaryProductForTest extends React.Component {
     summationProduct.quantity = this.state.quantity;
 
     return(
-        <div>
             <div className='summation-product'>
                 <div className='image-container'>
                     <img src={summationProduct.imageUrl} alt="product" />
@@ -42,7 +41,6 @@ class SummaryProductForTest extends React.Component {
                 </div>
                 <div className='clear-button' onClick={() => clearProduct(summationProduct)}>&#10005;</div>
             </div>
-        </div>
     );
     };
 };
