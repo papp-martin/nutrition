@@ -8,17 +8,32 @@ import ScaleIconComp from '../scale-icon/scale-icon.component';
 import { auth } from '../../firebase/firebase.utils';
 import { ReactComponent as Logo } from '../../assets/bread.svg';
 import './header.styles.scss';
+import { clearSummation } from '../../redux/summation/summation.actions';
 
-const Header = ({currentUser}) => (
+const Header = ({currentUser, clearSummation}) => {
+    let displayNAme = currentUser?.currentUser?.displayName;
+
+    const signOutClick = () => {
+        clearSummation();
+        auth.signOut();
+    };
+
+    return(
     <div className='header'>
         <Link className='logo-container' to='/'>
             <Logo className='logo'/>
         </Link>
         <div className='options'>
+            {
+                currentUser ?
+                (<div className='logged-in'>LOGGED IN: {displayNAme?.toUpperCase()}</div>)
+                :
+                (null)
+            }
             <Link className='option' to='/myconsumptions'>MY CONSUMPTIONS</Link>
             {
                 currentUser ?
-                (<div className='option' onClick={() => auth.signOut()}>SIGN OUT</div>)
+                (<div className='option' onClick={signOutClick}>SIGN OUT</div>)
                 :
                 (<Link className='option' to='/signIn'>SIGN IN</Link>)
             }
@@ -27,10 +42,14 @@ const Header = ({currentUser}) => (
             </Link>
         </div>
     </div>
-);
+)};
 
 const mapStateToProps = createStructuredSelector({
     currentUser: selectCurrentUser
 });
 
-export default withRouter(connect(mapStateToProps)(Header));
+const mapDispatchToProps = dispatch => ({
+    clearSummation: () => dispatch(clearSummation())
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

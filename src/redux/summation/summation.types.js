@@ -1,8 +1,9 @@
-const CartActionTypes = {
+const SummationActionTypes = {
     ADD_PRODUCT: 'ADD_PRODUCT',
     QUANTITY_CHANGED: 'QUANTITY_CHANGED',
     CLEAR_PRODUCT_FROM_SUMM: 'CLEAR_PRODUCT_FROM_SUMM',
-    REMOVE_PRODUCT: 'REMOVE_PRODUCT'
+    REMOVE_PRODUCT: 'REMOVE_PRODUCT',
+    CLEAR_SUMMATION: 'CLEAR_SUMMATION'
 };
 
-export default CartActionTypes;
+export default SummationActionTypes;
