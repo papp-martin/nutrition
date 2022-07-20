@@ -21,5 +21,3 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 ### `Login as admin`
 Email: admin@admin.com
 Password: admin2022
-
-This application will be expanded with new features
