@@ -9,6 +9,8 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import { ReactComponent as ScaleIcon } from '../../assets/scale.svg';
 import { useState } from 'react';
+import { withRouter } from 'react-router-dom';
+import DetailsComponent from '../../pages/details/details.component';
 
 const modalStyle = {
     position: 'absolute',
@@ -21,10 +23,24 @@ const modalStyle = {
     boxShadow: 24,
     p: 4,
 };
+const detailsmodalStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: '70%',
+    overflow:'scroll',
+    bgcolor: 'background.paper',
+    border: '1px solid black',
+    boxShadow: 24,
+    p: 4,
+};
 
-const ProductItem = ({ oneProduct, addProduct }) => {
+const ProductItem = ({ oneProduct, addProduct, }) => {
     const [open, setOpen] = useState(false);
+    const [detailsOpen, setDetailsopen] = useState(false);
     const { name, energy, protein, fat, carbohydrate, imageUrl } = oneProduct;
+
 
     const addClick = () => {
         addProduct(oneProduct);
@@ -33,9 +49,11 @@ const ProductItem = ({ oneProduct, addProduct }) => {
 
     const handleClose = () => setOpen(false);
 
+    const detailsClose = () => setDetailsopen(false);
+
     return (
         <div className='product-item'>
-            <div className='image' style={{backgroundImage: `url(${imageUrl})`}} />
+            <div className='image' style={{backgroundImage: `url(${imageUrl})`}} onClick={() => setDetailsopen(true)}/>
             <div className='item-details'>
                 <div className='container'>
                     <p className='detail'>Energy: {energy} kcal</p>
@@ -55,6 +73,11 @@ const ProductItem = ({ oneProduct, addProduct }) => {
                     </Stack>
                 </Box>
             </Modal>
+            <Modal open={detailsOpen} onClose={detailsClose}>
+                <Box sx={detailsmodalStyle}>
+                    <DetailsComponent oneProduct={oneProduct}/>
+                </Box>
+            </Modal>
         </div>
     );
 };
@@ -63,4 +86,4 @@ const mapDispatchToProps = dispatch => ({
     addProduct: oneProduct => dispatch(addProduct(oneProduct))
 });
 
-export default connect(null, mapDispatchToProps)(ProductItem);
+export default withRouter(connect(null, mapDispatchToProps)(ProductItem));

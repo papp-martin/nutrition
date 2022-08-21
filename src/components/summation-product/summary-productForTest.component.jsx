@@ -1,37 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './summary-product-for-test.styles.scss';
 
+function SummaryProductForTest({ summationProduct, clearProduct, addProduct}) {
+    const [quantity, setQuantity] = useState(0);
 
-class SummaryProductForTest extends React.Component {
-    constructor() {
-        super();
+    const handleChange = () => {
+        summationProduct.quantity = quantity;
+        addProduct();
+    }
 
-        this.state = {
-            quantity: 0
-        };
+    useEffect(() => {
+      handleChange();
+    }, [quantity])
+    
 
-    };
-
-    handleChange = event => {
-        this.setState({
-            quantity: parseInt(event.target.value)
-        });
-    };
-
-
-    render() {
-    const { summationProduct, clearProduct, quantityChanging } = this.props;
-
-    summationProduct.quantity = this.state.quantity;
-
-    return(
+  return (
         <div className='summation-product'>
             <div className='image-container'>
                 <img src={summationProduct.imageUrl} alt="product" />
             </div>
             <span className='name'>{summationProduct.name}</span>
             <span className='quantity'>
-                <input id='gramm-input' className='gramm-input' type="number" onChange={this.handleChange} onInput={() => quantityChanging()} max="1000" /> g
+                <input id='gramm-input' className='gramm-input' type="number" onChange={(event) => setQuantity(parseInt(event.target.value))} max="1000" /> g
             </span>
             <div className='datas'>
                 <p className='data'>Energy: {summationProduct.energy} kcal</p>
@@ -41,9 +31,7 @@ class SummaryProductForTest extends React.Component {
             </div>
                 <div className='clear-button' onClick={() => clearProduct(summationProduct)}>&#10005;</div>
         </div>
-    );
-    };
-};
+    )
+}
 
-
-export default SummaryProductForTest;
+export default SummaryProductForTest

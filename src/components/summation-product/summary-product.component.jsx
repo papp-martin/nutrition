@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { clearProductFromSumm, quantityChange } from '../../redux/summation/summation.actions';
+import { addProduct, clearProductFromSumm } from '../../redux/summation/summation.actions';
 import './summary-product.styles.scss';
 import SummaryProductForTest from './summary-productForTest.component';
 
@@ -12,8 +12,8 @@ class SummaryProduct extends React.Component {
 };
 
 const mapDispatchToProps = dispatch => ({
+    addProduct: () => dispatch(addProduct()),
     clearProduct: oneProduct => dispatch(clearProductFromSumm(oneProduct)),
-    quantityChanging: () => dispatch(quantityChange())
 });
 
 export default connect(null, mapDispatchToProps)(SummaryProduct);

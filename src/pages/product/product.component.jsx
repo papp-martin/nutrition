@@ -12,6 +12,8 @@ import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
+import Pagination from '../../components/pagination/pagination.component';
+
 
 const errormodalStyle = {
     position: 'absolute',
@@ -38,9 +40,10 @@ const addmodalStyle = {
 };
 
 
-const ProductPage = ({ product, currentUser }) => {
+const ProductPage = ({ product, currentUser, }) => {
     const { title, allProducts } = product;
 
+    //upload states
     const [name, setName] = useState('');
     const [energy, setEnergy] = useState(0);
     const [protein, setProtein] = useState(0);
@@ -49,11 +52,24 @@ const ProductPage = ({ product, currentUser }) => {
     const [image, setImage] = useState(null);
     const [progress, setProgress] = useState(0);
 
+    //modal states
     const [errorOpen, setErrorOpen] = useState(false);
     const errorClose = () => setErrorOpen(false);
-
     const [addOpen, setAddOpen] = useState(false);
     const addClose = () => setAddOpen(false);
+
+    //pagination states
+    const [currentPage, setCurrentPage] = useState(1);
+    const [productsPerPage] = useState(8);
+
+    
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = allProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+
+    //change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     const handleChange = event => {
         if(event.target.files[0]) {
@@ -142,10 +158,11 @@ const ProductPage = ({ product, currentUser }) => {
                 (null)
             }
             <div className='allProducts'>
-                {allProducts.map(oneProduct => (
+                {currentProducts.map(oneProduct => (
                     <ProductItem key={oneProduct.id} oneProduct={oneProduct} />
                 ))}
             </div>
+            <Pagination productsPerPage={productsPerPage} totalProducts={allProducts.length} paginate={paginate} currentPage={currentPage}/>
             <Modal open={errorOpen} onClose={errorClose}>
                 <Box sx={errormodalStyle}>
                     <Stack>
@@ -166,7 +183,7 @@ const ProductPage = ({ product, currentUser }) => {
 
 const mapStateToProps = (state, ownProps) => ({
     product: selectProduct(ownProps.match.params.productId)(state),
-    currentUser: selectCurrentUser(state),
+    currentUser: selectCurrentUser(state)
 });
 
 

@@ -98,7 +98,6 @@ const SummaryPage = ({ summationProducts, totalEnergy, totalProtein, totalFat, t
             ))):
             (<div>Add products to calculate your consumptions</div>)
         }
-        <CustomButton onClick={() => window.location.reload(false)}>Calculate</CustomButton>
         <div className='total-count'>
             <span className='totals'>TOTAL NUTRITIONAL VALUE:</span>
             <p className='total'>Energy: {Math.round((realtotalEnergy + Number.EPSILON) * 100) / 100} kcal</p>

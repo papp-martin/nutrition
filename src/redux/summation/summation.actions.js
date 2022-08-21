@@ -5,17 +5,8 @@ export const addProduct = oneProduct => ({
     payload: oneProduct
 });
 
-export const quantityChange = () => ({
-    type: SummationActionTypes.QUANTITY_CHANGED,
-});
-
 export const clearProductFromSumm = oneProduct => ({
     type: SummationActionTypes.CLEAR_PRODUCT_FROM_SUMM,
-    payload: oneProduct
-});
-
-export const removeProduct = oneProduct => ({
-    type: SummationActionTypes.REMOVE_PRODUCT,
     payload: oneProduct
 });
 

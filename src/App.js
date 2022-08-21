@@ -14,6 +14,7 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
+
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
